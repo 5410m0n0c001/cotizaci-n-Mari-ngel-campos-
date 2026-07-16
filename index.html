@@ -6,14 +6,12 @@
     <title>Cotización Boda Premium: Mariangel Campos | Primavera Events Group</title>
     <meta name="description" content="Propuesta exclusiva de Boda para Mariangel Campos. 200-250 personas. Jardín La Flor o Jardín San Rafael, Morelos. Febrero/Marzo 2027.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Cotización Boda Premium: Mariangel Campos | Primavera Events Group">
-    <meta property="og:description" content="Propuesta integral de boda en jardín para 200-250 personas en Morelos. Con agua natural, montaje de gala, banquete 4 tiempos y DJ profesional.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/jardin%20la%20flor.png">
+    <meta property="og:title" content="Cotización Boda: Mariangel Campos | Primavera Events Group">
+    <meta property="og:description" content="Propuesta integral de boda en jardín con agua para 200-250 personas en Morelos. Feb/Mar 2027.">
+    <meta property="og:image" content="hero.png">
     <meta property="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <style>
 :root{
@@ -29,75 +27,100 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 
-/* ── PRELOADER ── */
-#preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#1F1F1F 0%,#2d1f2a 100%);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:30px;transition:opacity 0.9s ease,visibility 0.9s ease;}
+/* ══ PRELOADER (igual al repo de referencia) ══ */
+#preloader{
+    position:fixed;top:0;left:0;width:100%;height:100%;
+    background-color:var(--white);
+    z-index:9999;display:flex;align-items:center;justify-content:center;
+    transition:opacity 0.8s ease,visibility 0.8s ease;
+}
 #preloader.fade-out{opacity:0;visibility:hidden;}
-.preloader-logo{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--gold-accent);box-shadow:0 0 40px rgba(201,169,110,0.4);animation:pulseLogo 2s ease-in-out infinite;}
-@keyframes pulseLogo{0%,100%{box-shadow:0 0 30px rgba(201,169,110,0.3);}50%{box-shadow:0 0 60px rgba(201,169,110,0.6);}}
-.preloader-text{color:var(--white);font-family:'Playfair Display',serif;font-size:1.6rem;text-align:center;max-width:400px;line-height:1.4;padding:0 20px;}
-.preloader-sub{color:var(--gold-accent);font-family:'Poppins',sans-serif;font-size:0.85rem;text-transform:uppercase;letter-spacing:3px;text-align:center;}
-.btn-enter{background:linear-gradient(135deg,var(--primary-pink),var(--primary-light));color:var(--white);border:none;padding:14px 40px;border-radius:50px;font-size:1rem;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(246,92,122,0.4);transition:all 0.3s ease;font-family:'Poppins',sans-serif;}
-.btn-enter:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px rgba(246,92,122,0.5);}
+#preloader video{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;}
+.preloader-overlay{
+    position:absolute;bottom:10%;left:50%;transform:translateX(-50%);
+    text-align:center;z-index:10;width:90%;max-width:420px;
+}
+.preloader-text{
+    color:var(--primary-dark);font-size:1.05rem;
+    margin-bottom:20px;font-weight:500;font-family:'Poppins',sans-serif;
+}
+.btn-enter{
+    background:var(--primary-pink);color:var(--white);border:none;
+    padding:13px 34px;border-radius:30px;font-size:1rem;font-weight:600;
+    cursor:pointer;box-shadow:0 4px 18px rgba(246,92,122,0.4);
+    transition:all 0.3s ease;font-family:'Poppins',sans-serif;
+}
+.btn-enter:hover{transform:scale(1.05);background:#e04b69;}
 
-/* ── BASE ── */
+/* ══ BASE ══ */
 body{font-family:'Poppins',sans-serif;background-color:var(--background-light);color:var(--primary-dark);line-height:1.6;-webkit-font-smoothing:antialiased;}
 h1,h2,h3,h4,h5,.serif-text{font-family:'Playfair Display',serif;}
 
-/* ── HERO ── */
-.hero{position:relative;height:72vh;min-height:480px;background-image:url('https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/jardin%20la%20flor.png');background-size:cover;background-position:center 20%;display:flex;justify-content:center;align-items:flex-end;}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.65) 100%);}
-.hero-content{position:relative;bottom:0;padding:60px 20px;text-align:center;color:var(--white);z-index:1;width:100%;animation:fadeInDown 1.1s cubic-bezier(0.2,0.8,0.2,1);}
-.hero-eyebrow{font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold-accent);margin-bottom:12px;}
-.hero h1{font-size:4rem;margin-bottom:8px;font-weight:700;text-shadow:0 3px 24px rgba(0,0,0,0.5);line-height:1.1;}
-.hero-sub{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:300;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-top:10px;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:rgba(201,169,110,0.2);border:1px solid var(--gold-accent);padding:8px 22px;border-radius:50px;font-size:0.85rem;color:var(--gold-accent);font-weight:500;}
+/* ══ HERO ══ */
+.hero{
+    position:relative;height:65vh;min-height:450px;
+    background-image:url('hero.png');
+    background-size:cover;background-position:center 0;
+    background-attachment:scroll;
+    display:flex;justify-content:center;
+    will-change:background-position;
+}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.55));}
+.hero-content{
+    position:absolute;bottom:110px;text-align:center;
+    color:var(--white);z-index:1;padding:0 20px;width:100%;
+    animation:fadeInDown 1s cubic-bezier(0.2,0.8,0.2,1);
+}
+.hero h1{font-size:4rem;margin-bottom:5px;font-weight:600;text-shadow:0 2px 20px rgba(0,0,0,0.5);}
+.hero p{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:300;letter-spacing:6px;text-transform:uppercase;color:var(--soft-pink);margin-top:10px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:rgba(201,169,110,0.25);border:1px solid var(--gold-accent);backdrop-filter:blur(4px);padding:8px 22px;border-radius:50px;font-size:0.82rem;color:var(--gold-accent);font-weight:600;letter-spacing:1px;}
 
-/* ── CONTAINER ── */
-.container{max-width:1120px;margin:-100px auto 80px;position:relative;z-index:2;padding:0 20px;}
-.quote-card{background:var(--white);border-radius:32px;box-shadow:0 30px 70px rgba(0,0,0,0.10);padding:70px 60px;animation:fadeInUp 1s cubic-bezier(0.2,0.8,0.2,1) 0.2s both;}
+/* ══ CONTAINER ══ */
+.container{max-width:1100px;margin:-100px auto 60px;position:relative;z-index:2;padding:0 20px;}
+.quote-card{background:var(--white);border-radius:30px;box-shadow:0 30px 60px rgba(0,0,0,0.12);padding:60px;animation:fadeInUp 1s cubic-bezier(0.2,0.8,0.2,1) 0.2s both;}
 
-/* ── HEADER INFO ── */
-.header-info{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--beige);padding-bottom:45px;margin-bottom:55px;flex-wrap:wrap;gap:25px;}
-.header-main h2{font-size:3.2rem;color:var(--primary-dark);line-height:1.1;margin-bottom:14px;}
-.header-main p{font-size:1.1rem;color:var(--gray-text);max-width:620px;line-height:1.7;}
+/* ══ HEADER INFO ══ */
+.header-info{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--beige);padding-bottom:40px;margin-bottom:50px;flex-wrap:wrap;gap:20px;}
+.header-main h2{font-size:3rem;color:var(--primary-dark);line-height:1.1;margin-bottom:15px;}
+.header-main p{font-size:1.1rem;color:var(--gray-text);max-width:640px;line-height:1.7;}
 .badge-wedding{display:inline-flex;align-items:center;gap:8px;background:var(--soft-pink);color:var(--primary-pink);padding:8px 22px;border-radius:40px;font-size:0.9rem;font-weight:600;margin-top:18px;text-transform:uppercase;letter-spacing:1.5px;}
 .summary-boxes{display:flex;gap:16px;flex-wrap:wrap;}
-.info-box{text-align:center;background:var(--background-light);padding:22px 28px;border-radius:20px;border:1px solid var(--beige);min-width:120px;}
+.info-box{text-align:center;background:var(--background-light);padding:20px 26px;border-radius:20px;border:1px solid var(--beige);min-width:120px;}
 .info-box span{display:block;font-size:0.75rem;color:var(--gray-text);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:8px;}
 .info-box strong{display:block;font-size:1.4rem;color:var(--primary-dark);font-family:'Playfair Display',serif;}
 
-/* ── SECTION TITLE ── */
-.section-title{color:var(--primary-dark);font-size:2rem;margin:60px 0 36px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+/* ══ SECTION TITLE ══ */
+.section-title{color:var(--primary-dark);font-size:2rem;margin:60px 0 40px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
 .section-title i{color:var(--primary-pink);}
 
-/* ── INCLUDES GRID ── */
-.includes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;margin-bottom:60px;}
-.include-item{background:var(--white);border:1px solid var(--beige);border-radius:22px;overflow:hidden;transition:all 0.5s cubic-bezier(0.165,0.84,0.44,1);display:flex;flex-direction:column;}
-.include-item:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,0.09);border-color:var(--primary-pink);}
+/* ══ INCLUDES GRID ══ */
+.includes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;margin-bottom:60px;}
+.include-item{background:var(--white);border:1px solid var(--beige);border-radius:20px;overflow:hidden;transition:all 0.5s cubic-bezier(0.165,0.84,0.44,1);display:flex;flex-direction:column;}
+.include-item:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.08);border-color:var(--primary-pink);}
 .include-img-container{width:100%;height:220px;overflow:hidden;position:relative;}
 .include-img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s ease;}
-.include-item:hover .include-img{transform:scale(1.08);}
-.include-content{padding:26px;flex-grow:1;display:flex;flex-direction:column;}
+.include-item:hover .include-img{transform:scale(1.1);}
+.include-content{padding:25px;flex-grow:1;display:flex;flex-direction:column;}
 .include-content h4{font-weight:600;font-size:1.15rem;margin-bottom:10px;color:var(--primary-dark);display:flex;align-items:center;gap:10px;}
 .include-content h4 i{color:var(--primary-pink);}
 .include-content p{font-size:0.93rem;color:var(--gray-text);line-height:1.65;}
-.include-list{margin-top:10px;list-style:none;padding-left:0;font-size:0.9rem;color:var(--gray-text);}
-.include-list li{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px;}
-.include-list li i{color:var(--primary-pink);margin-top:3px;flex-shrink:0;font-size:0.8rem;}
+.include-list{margin-top:10px;list-style:none;padding:0;}
+.include-list li{display:flex;align-items:flex-start;gap:8px;font-size:0.9rem;color:var(--gray-text);margin-bottom:5px;}
+.include-list li i{color:var(--primary-pink);font-size:0.8rem;margin-top:3px;flex-shrink:0;}
 
-/* ── VENUE COMPARE ── */
+/* ══ VENUES ══ */
 .venue-section{margin-top:70px;padding-top:50px;border-top:1px solid var(--beige);}
 .venue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:28px;}
-.venue-card{border-radius:24px;overflow:hidden;border:2px solid var(--beige);transition:all 0.4s cubic-bezier(0.165,0.84,0.44,1);position:relative;}
+.venue-card{border-radius:24px;overflow:hidden;border:2px solid var(--beige);transition:all 0.4s cubic-bezier(0.165,0.84,0.44,1);position:relative;background:var(--white);}
 .venue-card:hover{border-color:var(--primary-pink);box-shadow:0 20px 50px rgba(246,92,122,0.12);transform:translateY(-6px);}
 .venue-card.featured{border-color:var(--gold-accent);}
-.venue-card.featured .venue-badge-tag{display:block;}
-.venue-badge-tag{display:none;position:absolute;top:16px;right:16px;background:var(--gold-accent);color:var(--white);padding:5px 14px;border-radius:50px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:5;}
-.venue-img-wrap{height:240px;overflow:hidden;position:relative;}
-.venue-img-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,rgba(31,31,31,0.5),transparent);}
+.venue-badge-tag{display:block;position:absolute;top:16px;right:16px;background:var(--gold-accent);color:var(--white);padding:5px 14px;border-radius:50px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:5;box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+.venue-img-wrap{height:260px;overflow:hidden;position:relative;}
+.venue-img-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,rgba(0,0,0,0.45),transparent);}
 .venue-img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;}
 .venue-card:hover .venue-img{transform:scale(1.06);}
-.venue-water-badge{position:absolute;bottom:12px;left:14px;z-index:5;background:rgba(0,100,200,0.75);backdrop-filter:blur(6px);color:white;padding:5px 12px;border-radius:30px;font-size:0.78rem;font-weight:600;display:flex;align-items:center;gap:6px;}
+.venue-water-badge{position:absolute;bottom:14px;left:14px;z-index:5;background:rgba(10,80,180,0.72);backdrop-filter:blur(6px);color:white;padding:5px 13px;border-radius:30px;font-size:0.78rem;font-weight:600;display:flex;align-items:center;gap:6px;}
+.venue-logo-overlay{position:absolute;bottom:14px;right:14px;z-index:5;width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid white;box-shadow:0 4px 12px rgba(0,0,0,0.3);background:white;}
 .venue-body{padding:28px;}
 .venue-name{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary-dark);margin-bottom:8px;}
 .venue-location{font-size:0.85rem;color:var(--gray-text);display:flex;align-items:center;gap:6px;margin-bottom:18px;}
@@ -105,7 +128,7 @@ h1,h2,h3,h4,h5,.serif-text{font-family:'Playfair Display',serif;}
 .venue-price-block{background:var(--background-light);border-radius:16px;padding:18px 22px;margin-bottom:20px;}
 .venue-price-label{font-size:0.75rem;color:var(--gray-text);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:6px;}
 .venue-price{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--primary-pink);}
-.venue-price span{font-size:0.9rem;color:var(--gray-text);font-family:'Poppins',sans-serif;font-weight:400;}
+.venue-price span{font-size:0.88rem;color:var(--gray-text);font-family:'Poppins',sans-serif;font-weight:400;}
 .venue-totals{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
 .venue-total-item{font-size:0.82rem;color:var(--gray-text);}
 .venue-total-item strong{display:block;font-size:0.97rem;color:var(--primary-dark);font-family:'Playfair Display',serif;}
@@ -113,69 +136,82 @@ h1,h2,h3,h4,h5,.serif-text{font-family:'Playfair Display',serif;}
 .venue-feature-list li{display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--gray-text);margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--beige);}
 .venue-feature-list li:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
 .venue-feature-list li i{color:var(--gold-accent);flex-shrink:0;margin-top:3px;}
+.btn-venue{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;border-radius:50px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.3s ease;color:white;}
+.btn-venue.flor{background:var(--primary-pink);}
+.btn-venue.flor:hover{background:#e04b69;transform:translateY(-2px);}
+.btn-venue.sanrafael{background:var(--gold-accent);}
+.btn-venue.sanrafael:hover{filter:brightness(1.1);transform:translateY(-2px);}
 
-/* ── PRICING TABLE ── */
-.pricing-section{background:var(--background-light);border-radius:26px;padding:50px;margin-top:60px;}
+/* ══ PRICING ══ */
+.pricing-section{background:var(--background-light);border-radius:24px;padding:50px;margin-top:60px;}
 .pricing-table{width:100%;border-collapse:collapse;}
 .pricing-table th{text-align:left;padding:18px 20px;color:var(--gray-text);font-size:0.82rem;text-transform:uppercase;letter-spacing:1.5px;border-bottom:2px solid var(--beige);}
 .pricing-table td{padding:28px 20px;border-bottom:1px solid var(--beige);vertical-align:top;}
-.item-main{font-weight:600;font-size:1.3rem;display:block;margin-bottom:6px;color:var(--primary-dark);}
+.item-main{font-weight:600;font-size:1.3rem;display:block;margin-bottom:6px;}
 .item-sub{font-size:0.88rem;color:var(--gray-text);}
 .price-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--primary-pink);text-align:right;white-space:nowrap;}
-.price-sub{font-size:0.8rem;color:var(--gray-text);font-family:'Poppins',sans-serif;font-weight:400;}
-.total-box{margin-top:36px;padding-top:36px;border-top:2px solid var(--beige);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.price-sub{font-size:0.78rem;color:var(--gray-text);font-family:'Poppins',sans-serif;font-weight:400;}
+.total-box{margin-top:36px;padding-top:36px;border-top:2px solid var(--beige);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
 .total-label{font-size:1.2rem;color:var(--gray-text);}
 .total-amount{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--primary-dark);}
 
-/* ── KIT PLANNER DOWNLOAD ── */
-.kit-section{margin-top:60px;background:linear-gradient(135deg,#1F1F1F 0%,#2d1f2a 100%);border-radius:26px;padding:50px;color:white;display:flex;flex-wrap:wrap;align-items:center;gap:40px;}
+/* ══ KIT SECTION ══ */
+.kit-section{margin-top:60px;background:linear-gradient(135deg,#1a1a1a 0%,#2d1422 100%);border-radius:24px;padding:50px;color:white;display:flex;flex-wrap:wrap;align-items:center;gap:40px;}
 .kit-content{flex:1;min-width:260px;}
 .kit-badge{background:var(--gold-accent);display:inline-block;padding:5px 15px;border-radius:50px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;color:#1F1F1F;}
-.kit-content h3{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px;line-height:1.2;}
-.kit-content p{color:rgba(255,255,255,0.75);font-size:0.95rem;margin-bottom:24px;}
+.kit-content h3{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px;}
+.kit-content p{color:rgba(255,255,255,0.75);font-size:0.95rem;margin-bottom:24px;line-height:1.7;}
 .kit-buttons{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-kit{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:50px;font-weight:600;font-size:0.92rem;text-decoration:none;transition:all 0.3s ease;}
+.btn-kit{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:50px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.3s ease;white-space:nowrap;}
 .btn-kit.primary{background:var(--primary-pink);color:white;box-shadow:0 8px 24px rgba(246,92,122,0.3);}
 .btn-kit.primary:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(246,92,122,0.45);}
 .btn-kit.secondary{background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.25);}
 .btn-kit.secondary:hover{background:rgba(255,255,255,0.2);transform:translateY(-3px);}
-.kit-icons{display:flex;flex-direction:column;gap:16px;flex-shrink:0;}
-.kit-icon-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.06);padding:16px 20px;border-radius:16px;border:1px solid rgba(255,255,255,0.1);}
-.kit-icon-item i{font-size:1.6rem;color:var(--gold-accent);}
-.kit-icon-item span{font-size:0.85rem;color:rgba(255,255,255,0.75);}
-.kit-icon-item strong{display:block;color:white;font-size:0.95rem;}
+.kit-icons{display:flex;flex-direction:column;gap:14px;flex-shrink:0;}
+.kit-icon-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.07);padding:16px 20px;border-radius:16px;border:1px solid rgba(255,255,255,0.1);}
+.kit-icon-item i{font-size:1.5rem;color:var(--gold-accent);}
+.kit-icon-item span{font-size:0.83rem;color:rgba(255,255,255,0.7);}
+.kit-icon-item strong{display:block;color:white;font-size:0.92rem;}
 
-/* ── PDF DOWNLOAD BUTTON ── */
-.pdf-download-section{margin-top:50px;text-align:center;padding:40px;background:var(--white);border:1px solid var(--beige);border-radius:26px;}
-.pdf-download-section p{color:var(--gray-text);margin-bottom:20px;font-size:0.95rem;}
-.btn-pdf{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#c0392b,#e74c3c);color:white;padding:16px 36px;border-radius:50px;font-weight:600;font-size:1rem;text-decoration:none;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);box-shadow:0 10px 28px rgba(192,57,43,0.3);border:none;cursor:pointer;font-family:'Poppins',sans-serif;}
+/* ══ PDF BUTTON ══ */
+.pdf-section{margin-top:50px;text-align:center;padding:40px;background:var(--white);border:1px solid var(--beige);border-radius:24px;}
+.pdf-section h3{font-size:1.4rem;margin-bottom:10px;}
+.pdf-section p{color:var(--gray-text);margin-bottom:20px;font-size:0.93rem;}
+.btn-pdf{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#c0392b,#e74c3c);color:white;padding:16px 38px;border-radius:50px;font-weight:600;font-size:1rem;border:none;cursor:pointer;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);box-shadow:0 10px 28px rgba(192,57,43,0.3);font-family:'Poppins',sans-serif;}
 .btn-pdf:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 18px 40px rgba(192,57,43,0.4);}
 
-/* ── INVITATION DIGITAL SECTION ── */
-.inv-section{margin-top:60px;border-top:1px solid var(--beige);padding-top:50px;}
-.inv-card{display:flex;flex-wrap:wrap;gap:30px;align-items:center;background:linear-gradient(135deg,var(--soft-pink),#fff5f7);border-radius:24px;padding:40px;border:1px solid rgba(246,92,122,0.15);}
-.inv-card-icon{width:80px;height:80px;background:var(--primary-pink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;flex-shrink:0;}
-.inv-card-body{flex:1;min-width:200px;}
+/* ══ INVITACIÓN DIGITAL ══ */
+.inv-card{display:flex;flex-wrap:wrap;gap:30px;align-items:center;background:linear-gradient(135deg,var(--soft-pink),#fff5f7);border-radius:24px;padding:40px;border:1px solid rgba(246,92,122,0.15);margin-top:50px;}
+.inv-card-icon{width:76px;height:76px;background:var(--primary-pink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:white;flex-shrink:0;}
 .inv-card-body h3{font-size:1.5rem;margin-bottom:8px;color:var(--primary-dark);}
-.inv-card-body p{color:var(--gray-text);font-size:0.93rem;margin-bottom:14px;}
+.inv-card-body p{color:var(--gray-text);font-size:0.92rem;margin-bottom:14px;line-height:1.65;}
 .btn-inv{display:inline-flex;align-items:center;gap:10px;background:var(--primary-pink);color:white;padding:11px 26px;border-radius:50px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.3s ease;}
 .btn-inv:hover{background:#e04b69;transform:translateY(-2px);}
 
-/* ── NOTES ── */
+/* ══ FIRMA ══ */
+.signature-section{text-align:center;margin-top:40px;margin-bottom:20px;}
+
+/* ══ DURACION ══ */
+.duration-box{margin-top:50px;padding:40px;background:linear-gradient(135deg,#1a1a1a,#333);border-radius:24px;color:white;display:flex;flex-wrap:wrap;align-items:center;gap:30px;}
+.duration-badges{flex:1;min-width:220px;display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+.duration-badge-item{background:rgba(255,255,255,0.08);border-radius:14px;padding:18px;text-align:center;}
+.duration-badge-item i{color:var(--primary-pink);font-size:1.5rem;margin-bottom:8px;display:block;}
+.duration-badge-item span{font-size:0.85rem;color:#ddd;}
+
+/* ══ NOTA FINAL ══ */
 .notes-section{margin-top:50px;padding:38px;border:1px solid var(--beige);border-radius:22px;background:var(--white);}
 .notes-section h3{font-size:1.5rem;margin-bottom:18px;display:flex;align-items:center;gap:12px;}
 .notes-section h3 i{color:var(--primary-pink);}
 .notes-section p{color:var(--gray-text);font-size:0.93rem;line-height:1.7;margin-bottom:10px;}
-.notes-section p:last-child{margin-bottom:0;}
 .quote-phrase{font-style:italic;color:var(--primary-pink);font-weight:600;font-size:1rem;margin-top:16px!important;}
 
-/* ── CTA ── */
+/* ══ CTA ══ */
 .cta-container{text-align:center;margin-top:60px;padding:50px 20px;background:var(--background-light);border-radius:24px;}
-.cta-container p{margin-bottom:28px;font-style:italic;color:var(--gray-text);font-size:1rem;}
-.btn-whatsapp{background:linear-gradient(135deg,var(--primary-pink) 0%,var(--primary-light) 100%);color:white;padding:20px 50px;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:15px;font-weight:600;font-size:1.1rem;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);box-shadow:0 15px 30px rgba(246,92,122,0.25);}
+.cta-container p{margin-bottom:28px;font-style:italic;color:var(--gray-text);}
+.btn-whatsapp{background:linear-gradient(135deg,var(--primary-pink),var(--primary-light));color:white;padding:20px 50px;border-radius:50px;text-decoration:none;display:inline-flex;align-items:center;gap:15px;font-weight:600;font-size:1.1rem;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);box-shadow:0 15px 30px rgba(246,92,122,0.25);}
 .btn-whatsapp:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 22px 44px rgba(246,92,122,0.38);}
 
-/* ── FOOTER ── */
+/* ══ FOOTER ══ */
 footer{padding:60px 20px;background:var(--white);border-top:1px solid var(--beige);text-align:center;}
 .footer-container{max-width:800px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px;}
 .footer-logo{width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:8px;border:2px solid var(--gold-accent);}
@@ -185,20 +221,20 @@ footer{padding:60px 20px;background:var(--white);border-top:1px solid var(--beig
 .footer-container a:hover{color:var(--primary-pink);}
 .footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid var(--beige);color:var(--gray-text);font-size:0.78rem;}
 
-/* ── FLOATING ACTIONS ── */
-.floating-actions-container{position:fixed;bottom:20px;right:20px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:14px;}
+/* ══ FAB ══ */
+.floating-actions-container{position:fixed;bottom:15px;right:15px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:15px;}
 .fab-group{display:flex;flex-direction:column;align-items:flex-end;position:relative;}
-.fab-main{width:52px;height:52px;border-radius:50%;background:transparent;border:none;color:var(--primary-pink);font-size:1.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);}
-.fab-main:hover{transform:scale(1.12) translateY(-4px);}
-.fab-label{position:absolute;right:62px;background:var(--white);color:var(--primary-dark);padding:6px 12px;border-radius:20px;font-size:0.78rem;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transition:all 0.3s ease;font-weight:500;pointer-events:none;}
-.fab-main:hover .fab-label{opacity:1;visibility:visible;right:58px;}
-.fab-menu{display:flex;flex-direction:column-reverse;gap:8px;position:absolute;bottom:100%;right:5px;opacity:0;visibility:hidden;transform:translateY(20px);transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);margin-bottom:10px;pointer-events:none;z-index:1;}
+.fab-main{width:50px;height:50px;border-radius:50%;background:transparent;border:none;color:var(--primary-pink);font-size:1.8rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);}
+.fab-main:hover{transform:scale(1.1) translateY(-5px);}
+.fab-label{position:absolute;right:65px;background:var(--white);color:var(--primary-dark);padding:6px 12px;border-radius:20px;font-size:0.78rem;white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,0.1);opacity:0;visibility:hidden;transition:all 0.3s ease;font-weight:500;pointer-events:none;}
+.fab-main:hover .fab-label{opacity:1;visibility:visible;right:60px;}
+.fab-menu{display:flex;flex-direction:column-reverse;gap:8px;position:absolute;bottom:100%;right:5px;opacity:0;visibility:hidden;transform:translateY(20px);transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);margin-bottom:10px;pointer-events:none;}
 .fab-group.active .fab-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
-.fab-item{width:40px;height:40px;border-radius:50%;background:var(--white);color:var(--primary-pink);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.1rem;box-shadow:0 4px 14px rgba(0,0,0,0.12);transition:all 0.3s ease;}
+.fab-item{width:40px;height:40px;border-radius:50%;background:var(--white);color:var(--primary-pink);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.1rem;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:all 0.3s ease;}
 .fab-item:hover{background:var(--primary-pink);color:var(--white);transform:scale(1.15);}
 .fab-group.active .fab-main{transform:rotate(15deg) scale(0.9);}
 
-/* ── ANIMATIONS ── */
+/* ══ ANIMACIONES ══ */
 @keyframes fadeInDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
 .reveal{opacity:0;transition:all 1.2s cubic-bezier(0.2,0.8,0.2,1);}
@@ -206,44 +242,72 @@ footer{padding:60px 20px;background:var(--white);border-top:1px solid var(--beig
 .reveal-left{transform:translateX(-50px);}
 .reveal-right{transform:translateX(50px);}
 .reveal.active{opacity:1;transform:translate(0,0)!important;}
-.delay-1{transition-delay:0.1s;}.delay-2{transition-delay:0.2s;}.delay-3{transition-delay:0.3s;}.delay-4{transition-delay:0.4s;}
+.delay-1{transition-delay:0.1s;}.delay-2{transition-delay:0.2s;}.delay-3{transition-delay:0.3s;}.delay-4{transition-delay:0.4s;}.delay-5{transition-delay:0.5s;}
 
-/* ── RESPONSIVE ── */
+/* ══ RESPONSIVE ══ */
+@media(max-width:850px){.duration-box{flex-direction:column;}.kit-section{flex-direction:column;}}
 @media(max-width:768px){
-    .hero h1{font-size:2.2rem;}
-    .hero{height:auto;min-height:380px;}
-    .container{margin-top:0;padding:0 14px;}
-    .quote-card{padding:30px 18px;border-radius:0;box-shadow:none;}
+    .hero{height:auto;aspect-ratio:16/9;min-height:auto;background-size:contain;background-position:top center;background-repeat:no-repeat;background-color:var(--background-light);background-attachment:scroll;}
+    .hero-content{position:absolute;bottom:5px;padding:0 10px;}
+    .hero h1{font-size:1.6rem;text-shadow:0 2px 10px rgba(0,0,0,0.7);}
+    .container{margin-top:0;padding:0 15px;}
+    .quote-card{padding:30px 15px;border-radius:0;box-shadow:none;}
     .header-main h2{font-size:2rem;}
     .header-info{text-align:center;justify-content:center;}
-    .summary-boxes{width:100%;flex-direction:row;gap:10px;flex-wrap:nowrap;}
+    .summary-boxes{width:100%;gap:8px;}
     .info-box{flex:1;padding:14px;min-width:0;}
     .info-box strong{font-size:1.1rem;}
     .includes-grid{grid-template-columns:1fr;}
-    .pricing-section{padding:28px 16px;}
-    .item-main{font-size:1.1rem;}
-    .price-val{font-size:1.6rem;}
+    .pricing-section{padding:25px 15px;}
     .total-box{flex-direction:column;gap:12px;text-align:center;}
     .total-amount{font-size:2.2rem;}
-    .kit-section{padding:30px 22px;}
-    .kit-content h3{font-size:1.6rem;}
+    .duration-badges{grid-template-columns:1fr!important;}
+    .kit-icons{display:none;}
+}
+/* ══ PRINT ══ */
+@media print{
+    #preloader,.floating-actions-container,.pdf-section,.btn-inv,.cta-container .btn-whatsapp,audio{display:none!important;}
+    body{background:white!important;}
+    .quote-card{box-shadow:none!important;padding:20px!important;}
+    .hero{height:200px!important;min-height:auto!important;}
+    .hero h1{font-size:2rem!important;}
+    .container{margin-top:0!important;}
+    .include-img-container,.venue-img-wrap{height:140px!important;}
+    .reveal{opacity:1!important;transform:none!important;}
 }
 </style>
+
 <body>
 
-<!-- ══ PRELOADER ══ -->
+<!-- ══ PRELOADER (estilo repo de referencia: video + botón) ══ -->
 <div id="preloader">
-    <img src="logo_primavera.png" alt="Primavera Events Group" class="preloader-logo" onerror="this.style.display='none'">
-    <p class="preloader-text">Estimada Mariangel,<br>hemos preparado con mucho cariño esta propuesta exclusiva para su boda.</p>
-    <p class="preloader-sub">Primavera Events Group · El Arte de Servir</p>
-    <button id="btnEnter" class="btn-enter"><i class="fa-solid fa-heart" style="margin-right:8px;"></i>Ver mi cotización</button>
+    <video id="preloaderVideo" autoplay muted loop playsinline preload="auto">
+        <source src="precarga.mp4?v=2.0" type="video/mp4">
+    </video>
+    <div class="preloader-overlay">
+        <p class="preloader-text">Estimada Mariangel, gracias por confiar en nosotros para la celebración de su boda.</p>
+        <button id="btnEnter" class="btn-enter">Haz clic para continuar</button>
+    </div>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-    var p=document.getElementById('preloader');
-    document.getElementById('btnEnter').addEventListener('click',function(){
-        p.classList.add('fade-out');
-        setTimeout(function(){p.style.display='none';},900);
+    var preloader=document.getElementById('preloader');
+    var preloaderVideo=document.getElementById('preloaderVideo');
+    var btnEnter=document.getElementById('btnEnter');
+    var bgAudio=document.getElementById('bgAudio');
+
+    var hidePreloader=function(){
+        if(preloader){preloader.classList.add('fade-out');setTimeout(function(){preloader.style.display='none';},800);}
+    };
+
+    if(preloaderVideo){var p=preloaderVideo.play();if(p!==undefined){p.catch(function(){});}}
+
+    btnEnter.addEventListener('click',function(){
+        if(bgAudio){bgAudio.play().catch(function(){});}
+        var videoFirma=document.getElementById('videoFirma');
+        if(videoFirma){videoFirma.play().catch(function(){});}
+        hidePreloader();
     });
 });
 </script>
@@ -251,10 +315,9 @@ document.addEventListener('DOMContentLoaded',function(){
 <!-- ══ HERO ══ -->
 <header class="hero">
     <div class="hero-content">
-        <div class="hero-eyebrow"><i class="fa-solid fa-water"></i> Bodas en Jardín · Morelos</div>
-        <h1>Boda Mariangel Campos</h1>
-        <p class="hero-sub">Propuesta Exclusiva · Febrero / Marzo 2027</p>
-        <span class="hero-badge"><i class="fa-solid fa-droplet"></i> Jardines con Agua · 200 a 250 Invitados</span>
+        <h1>Propuesta Exclusiva</h1>
+        <p>Boda · Mariangel Campos · 2027</p>
+        <span class="hero-badge"><i class="fa-solid fa-droplet"></i>&nbsp; Jardines con Agua · Morelos &nbsp;<i class="fa-solid fa-rings-wedding"></i></span>
     </div>
 </header>
 
@@ -264,15 +327,15 @@ document.addEventListener('DOMContentLoaded',function(){
 <!-- ── Header Info ── -->
 <div class="header-info reveal">
     <div class="header-main">
-        <h2>Boda Premium en Jardín</h2>
-        <p>Estimada <strong>Mariangel</strong>, hemos diseñado con gran emoción esta propuesta exclusiva para que el día de tu boda sea exactamente como lo has soñado: un elegante jardín con agua, en el estado de <strong>Morelos</strong>, para <strong>200 a 250 invitados</strong>, con todo el lujo y la coordinación de Primavera Events Group.</p>
+        <h2>Boda en Jardín</h2>
+        <p>Estimada <strong>Mariangel</strong>, hemos diseñado con gran emoción esta propuesta exclusiva para que el día de tu boda sea exactamente como lo has soñado: un elegante jardín con agua, en el hermoso estado de <strong>Morelos</strong>, para <strong>200 a 250 invitados</strong>, con todo el lujo y la coordinación de Primavera Events Group.</p>
         <span class="badge-wedding"><i class="fa-solid fa-rings-wedding"></i> Propuesta de Boda Personalizada</span>
     </div>
     <div class="summary-boxes">
         <div class="info-box"><span>Invitados</span><strong>200–250</strong></div>
-        <div class="info-box"><span>Inversión</span><strong>Desde $899 p/p</strong></div>
-        <div class="info-box"><span>Fecha</span><strong>Feb / Mar 2027</strong></div>
-        <div class="info-box"><span>Duración</span><strong>8 Horas</strong></div>
+        <div class="info-box"><span>Desde</span><strong>$899 p/p</strong></div>
+        <div class="info-box"><span>Fecha</span><strong>Feb/Mar 2027</strong></div>
+        <div class="info-box"><span>Servicio</span><strong>8 Horas</strong></div>
     </div>
 </div>
 
@@ -281,39 +344,31 @@ document.addEventListener('DOMContentLoaded',function(){
 <div class="includes-grid">
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/imobiliario%20elegante.webp" alt="Mobiliario" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="mobiliario.webp" alt="Sillería Luis XV y Carlota" class="include-img"></div>
     <div class="include-content">
         <h4><i class="fa-solid fa-chair"></i> Sillería Luis XV y Carlota</h4>
-        <p>Sillas de lujo de estilo Luis XV y Carlota en combinación armoniosa con mesas rectangulares de madera campirana, mesas cuadradas y tipo mármol. Un montaje que evoca la elegancia clásica y romántica.</p>
+        <p>Sillas de lujo estilo Luis XV y Carlota en combinación armoniosa con mesas campiranas de madera, cuadradas y tipo mármol. Un montaje que evoca la elegancia clásica y romántica perfecta para una boda.</p>
     </div>
 </div></div>
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/manteleria.webp" alt="Mantelería" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="mesa_principal.webp" alt="Mesa Principal de Novios" class="include-img"></div>
     <div class="include-content">
-        <h4><i class="fa-solid fa-scroll"></i> Mantelería y Mesa Principal</h4>
-        <p>Mantelería fina con elegante mesa principal de novios con sillones Rey & Reyna, florería de temporada en centros de mesa altos y bajos, alfombra roja de entrada y montaje de gala.</p>
+        <h4><i class="fa-solid fa-couch"></i> Mesa Principal de Novios</h4>
+        <p>Templete de madera y mesa de honor con elegantes sillones <strong>Rey &amp; Reyna</strong>. Mantelería fina y centros de mesa florales altos y bajos con flor natural de temporada para un impacto visual inolvidable.</p>
     </div>
 </div></div>
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/vajilla.webp" alt="Vajilla" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="vajilla.webp" alt="Vajilla" class="include-img"></div>
     <div class="include-content">
         <h4><i class="fa-solid fa-plate-wheat"></i> Vajilla Fina y Plaque Premium</h4>
-        <p>Loza blanca de alta calidad, plato base decorativo en varios modelos, cubertería fina premium en tonos plata, oro o gold rose, cristalería elegante incluyendo copas de color y transparentes.</p>
+        <p>Loza blanca fina, plato base decorativo en varios modelos, cubertería premium en plata, oro o gold rose, cristalería elegante en copas de color y transparentes. Todo a la altura de una boda de ensueño.</p>
     </div>
 </div></div>
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/margaritas.webp" alt="Cóctel de Bienvenida" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="margaritas.webp" alt="Cóctel de Bienvenida" class="include-img"></div>
     <div class="include-content">
         <h4><i class="fa-solid fa-martini-glass"></i> Cóctel de Bienvenida</h4>
         <p>Recepción VIP con periqueras altas, salas lounge y sombrillas. Barra de bebidas sin alcohol preparadas al momento: margaritas de sabores, piñada y mojito. Agua fresca natural y crudités con miguelito y chamoy.</p>
@@ -321,14 +376,12 @@ document.addEventListener('DOMContentLoaded',function(){
 </div></div>
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/cristaleria.webp" alt="Banquete 4 Tiempos" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="cristaleria.webp" alt="Banquete 4 Tiempos" class="include-img"></div>
     <div class="include-content">
         <h4><i class="fa-solid fa-utensils"></i> Banquete a 4 Tiempos</h4>
         <ul class="include-list">
             <li><i class="fa-solid fa-check"></i><span><strong>Entrada:</strong> Ensaladas frescas de autor o cremas cremosas finas</span></li>
-            <li><i class="fa-solid fa-check"></i><span><strong>Plato Fuerte:</strong> Pollo o cerdo en diversas salsas + 2 guarniciones</span></li>
+            <li><i class="fa-solid fa-check"></i><span><strong>Plato Fuerte:</strong> Pollo o cerdo en salsas selectas + 2 guarniciones</span></li>
             <li><i class="fa-solid fa-check"></i><span><strong>Tornafiesta:</strong> Esquites o chilaquiles (60% de invitados)</span></li>
             <li><i class="fa-solid fa-check"></i><span><strong>Menú Infantil:</strong> Nuggets, hamburguesa o milanesa + papas</span></li>
         </ul>
@@ -336,29 +389,25 @@ document.addEventListener('DOMContentLoaded',function(){
 </div></div>
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/mezcladores.png" alt="Mezcladores" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="mezcladores.png" alt="Mezcladores" class="include-img"></div>
     <div class="include-content">
         <h4><i class="fa-solid fa-bottle-water"></i> Mezcladores Completos</h4>
         <ul class="include-list">
-            <li><i class="fa-solid fa-check"></i><span>Hielo en cubo purificado</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Refrescos línea Coca-Cola, toronja, manzanita y agua mineral</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Limón, sal y desechables incluidos</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Hielo en cubo purificado en abundancia</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Refrescos Coca-Cola, manzanita, toronja y agua mineral</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Limón, sal y desechables incluidos todo el evento</span></li>
         </ul>
     </div>
 </div></div>
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/dj.webp" alt="DJ Profesional" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="dj.webp" alt="DJ Profesional" class="include-img"></div>
     <div class="include-content">
         <h4><i class="fa-solid fa-compact-disc"></i> DJ Profesional y Producción</h4>
         <ul class="include-list">
             <li><i class="fa-solid fa-check"></i><span>DJ con amplia experiencia en bodas</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Cabina DJ, audio premium e iluminación LED</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Cabezas robóticas y torres iluminadas</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Cabina DJ, audio premium e iluminación LED ambiental</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Cabezas robóticas y torres iluminadas de 2m</span></li>
             <li><i class="fa-solid fa-check"></i><span>Pantalla con proyector y micrófonos inalámbricos</span></li>
             <li><i class="fa-solid fa-check"></i><span>Máquina de humo y 2 chisperos a control remoto</span></li>
         </ul>
@@ -366,35 +415,30 @@ document.addEventListener('DOMContentLoaded',function(){
 </div></div>
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/cordinador%20(1).webp" alt="Coordinación" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="coordinador.webp" alt="Coordinador" class="include-img"></div>
     <div class="include-content">
         <h4><i class="fa-solid fa-clipboard-check"></i> Coordinación General</h4>
-        <p>Coordinador general responsable del minuto a minuto, croquis de distribución del banquete, chat exclusivo de WhatsApp y acompañamiento integral antes, durante y después del evento.</p>
+        <p>Coordinador general responsable del minuto a minuto del evento, croquis de distribución del banquete, chat exclusivo de WhatsApp y acompañamiento integral antes, durante y después del gran día.</p>
     </div>
 </div></div>
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/meseros.webp" alt="Staff" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="meseros.webp" alt="Staff" class="include-img"></div>
     <div class="include-content">
         <h4><i class="fa-solid fa-bell-concierge"></i> Staff Completo Uniformado</h4>
-        <p>Capitán de meseros, meseros, barman, personal de cocina de alta, hostess de bienvenida y personal de sanitarios. Todo el equipo uniformado y capacitado para una atención impecable.</p>
+        <p>Capitán de meseros, meseros, barman, personal de cocina de alta, hostess de bienvenida y personal de sanitarios. Todo el equipo uniformado y capacitado para una atención impecable durante las 8 horas.</p>
     </div>
 </div></div>
 
 <div class="reveal"><div class="include-item">
-    <div class="include-img-container">
-        <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/letras%20gigantes.webp" alt="Letras LOVE" class="include-img">
-    </div>
+    <div class="include-img-container"><img src="letras_gigantes.webp" alt="Cortesías" class="include-img"></div>
     <div class="include-content">
-        <h4><i class="fa-solid fa-font"></i> Cortesías de Boda</h4>
+        <h4><i class="fa-solid fa-gift"></i> Cortesías de Boda Incluidas</h4>
         <ul class="include-list">
             <li><i class="fa-solid fa-heart"></i><span>Letras gigantes iluminadas <strong>"LOVE"</strong></span></li>
             <li><i class="fa-solid fa-heart"></i><span>Mesa especial para pastel y regalos</span></li>
-            <li><i class="fa-solid fa-heart"></i><span>2 chisperos de pirotecnia en frío para el vals</span></li>
+            <li><i class="fa-solid fa-heart"></i><span>2 chisperos de pirotecnia en frío para el primer vals</span></li>
+            <li><i class="fa-solid fa-heart"></i><span>Alfombra roja de entrada</span></li>
             <li><i class="fa-solid fa-heart"></i><span>Degustación exclusiva para 4 personas</span></li>
         </ul>
     </div>
@@ -403,17 +447,18 @@ document.addEventListener('DOMContentLoaded',function(){
 </div><!-- end includes-grid -->
 
 <!-- ── LOCACIONES ── -->
-<div class="venue-section reveal">
-    <h3 class="section-title" style="margin-top:0;"><i class="fa-solid fa-map-location-dot"></i> Elige tu Jardín con Agua</h3>
-    <p style="color:var(--gray-text);margin-bottom:8px;">Hemos seleccionado dos opciones exclusivas en Jiutepec, Morelos que cumplen con tu preferencia de jardín con agua natural. Ambas cuentan con el mismo paquete de servicios, al nivel de excelencia que merece tu boda.</p>
+<div class="venue-section">
+    <h3 class="section-title reveal" style="margin-top:0;"><i class="fa-solid fa-map-location-dot"></i> Elige tu Jardín con Agua</h3>
+    <p class="reveal" style="color:var(--gray-text);margin-bottom:8px;">Dos opciones exclusivas en Jiutepec, Morelos con el mismo paquete de servicios al más alto nivel de excelencia.</p>
     <div class="venue-grid">
 
         <!-- Jardín La Flor -->
-        <div class="venue-card featured reveal reveal-left">
+        <div class="venue-card featured reveal reveal-left delay-1">
             <span class="venue-badge-tag"><i class="fa-solid fa-star"></i> Recomendado</span>
             <div class="venue-img-wrap">
-                <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/jardin%20la%20flor.png" alt="Jardín La Flor" class="venue-img">
+                <img src="jardin_la_flor.png" alt="Jardín La Flor" class="venue-img">
                 <span class="venue-water-badge"><i class="fa-solid fa-water"></i> Cascada iluminada natural</span>
+                <img src="logo_jardin_la_flor.png" alt="Logo La Flor" class="venue-logo-overlay" onerror="this.style.display='none'">
             </div>
             <div class="venue-body">
                 <div class="venue-name">Jardín La Flor</div>
@@ -428,21 +473,19 @@ document.addEventListener('DOMContentLoaded',function(){
                 </div>
                 <ul class="venue-feature-list">
                     <li><i class="fa-solid fa-droplet"></i><span><strong>Cascada iluminada</strong> natural rodeada de vegetación exuberante</span></li>
-                    <li><i class="fa-solid fa-church"></i><span>Capilla consagrada disponible para ceremonia religiosa</span></li>
+                    <li><i class="fa-solid fa-church"></i><span>Capilla consagrada para ceremonia religiosa en el mismo lugar</span></li>
                     <li><i class="fa-solid fa-tree"></i><span>Jardín con abundante vegetación y área de recepción exclusiva</span></li>
-                    <li><i class="fa-solid fa-car"></i><span>Estacionamiento amplio para 60 autos</span></li>
-                    <li><i class="fa-solid fa-clock"></i><span>Servicio de 8 horas (hasta la 01:00 hrs)</span></li>
+                    <li><i class="fa-solid fa-car"></i><span>Estacionamiento para 60 autos</span></li>
+                    <li><i class="fa-solid fa-clock"></i><span>8 horas de servicio (hasta las 01:00 hrs)</span></li>
                 </ul>
-                <a href="https://primaveraeventsgroup.com/jardin-la-flor/" target="_blank" class="btn-inv" style="margin-top:auto;">
-                    <i class="fa-solid fa-eye"></i> Conocer el jardín
-                </a>
+                <a href="https://primaveraeventsgroup.com/jardin-la-flor/" target="_blank" class="btn-venue flor"><i class="fa-solid fa-eye"></i> Conocer el jardín</a>
             </div>
         </div>
 
         <!-- Jardín San Rafael -->
-        <div class="venue-card reveal reveal-right">
+        <div class="venue-card reveal reveal-right delay-2">
             <div class="venue-img-wrap">
-                <img src="https://raw.githubusercontent.com/5410m0n0c001/antonio-cotizacion/main/yolomecatl.webp" alt="Jardín San Rafael" class="venue-img">
+                <img src="logo_san_rafael.png" alt="Jardín San Rafael" class="venue-img" style="object-fit:contain;background:#f0ece8;padding:20px;">
                 <span class="venue-water-badge"><i class="fa-solid fa-water"></i> Espejos de agua y fuentes</span>
             </div>
             <div class="venue-body">
@@ -458,14 +501,12 @@ document.addEventListener('DOMContentLoaded',function(){
                 </div>
                 <ul class="venue-feature-list">
                     <li><i class="fa-solid fa-droplet"></i><span>Amplios jardines con <strong>espejos de agua y fuentes</strong> decorativas</span></li>
-                    <li><i class="fa-solid fa-users"></i><span>Capacidad para eventos de 300 a 800 invitados</span></li>
-                    <li><i class="fa-solid fa-expand"></i><span>Amplias áreas verdes para civil y fiesta en el mismo espacio</span></li>
-                    <li><i class="fa-solid fa-moon"></i><span>Ambiente nocturno con iluminación arquitectónica</span></li>
-                    <li><i class="fa-solid fa-clock"></i><span>Servicio de 8 horas (hasta la 01:00 hrs)</span></li>
+                    <li><i class="fa-solid fa-users"></i><span>Gran capacidad: de 300 a 800 invitados</span></li>
+                    <li><i class="fa-solid fa-expand"></i><span>Civil y fiesta en el mismo espacio sin desplazamientos</span></li>
+                    <li><i class="fa-solid fa-moon"></i><span>Iluminación arquitectónica de noche espectacular</span></li>
+                    <li><i class="fa-solid fa-clock"></i><span>8 horas de servicio (hasta las 01:00 hrs)</span></li>
                 </ul>
-                <a href="https://primaveraeventsgroup.com/" target="_blank" class="btn-inv" style="margin-top:auto;background:var(--gold-accent);">
-                    <i class="fa-solid fa-phone"></i> Solicitar visita guiada
-                </a>
+                <a href="https://wa.me/527774587923?text=Hola%2C%20quisiera%20información%20sobre%20el%20Jardín%20San%20Rafael%20para%20boda%20de%20Mariangel%20Campos." target="_blank" class="btn-venue sanrafael"><i class="fa-solid fa-phone"></i> Solicitar visita guiada</a>
             </div>
         </div>
 
@@ -476,7 +517,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <div class="pricing-section reveal">
     <h3 class="section-title" style="margin-top:0;"><i class="fa-solid fa-receipt"></i> Resumen de Inversión</h3>
     <table class="pricing-table">
-        <thead><tr><th>Concepto</th><th>Pers.</th><th style="text-align:right;">P/Persona</th><th style="text-align:right;">Total Est.</th></tr></thead>
+        <thead><tr><th>Concepto</th><th>Personas</th><th style="text-align:right;">P/Persona</th><th style="text-align:right;">Total Estimado</th></tr></thead>
         <tbody>
             <tr>
                 <td>
@@ -484,8 +525,8 @@ document.addEventListener('DOMContentLoaded',function(){
                     <span class="item-sub">Con cascada iluminada · Servicio integral 8 hrs · Todo incluido</span>
                 </td>
                 <td style="color:var(--gray-text);">200 – 250</td>
-                <td class="price-val">$899.00 <div class="price-sub">p/p</div></td>
-                <td class="price-val" style="color:var(--primary-dark);">$179,800<div class="price-sub">— $224,750</div></td>
+                <td class="price-val">$899<div class="price-sub">p/p</div></td>
+                <td class="price-val" style="color:var(--primary-dark);">$179,800<div class="price-sub">– $224,750</div></td>
             </tr>
             <tr>
                 <td>
@@ -493,25 +534,40 @@ document.addEventListener('DOMContentLoaded',function(){
                     <span class="item-sub">Con espejos de agua · Servicio integral 8 hrs · Todo incluido</span>
                 </td>
                 <td style="color:var(--gray-text);">200 – 250</td>
-                <td class="price-val">$1,499.00 <div class="price-sub">p/p</div></td>
-                <td class="price-val" style="color:var(--primary-dark);">$299,800<div class="price-sub">— $374,750</div></td>
+                <td class="price-val">$1,499<div class="price-sub">p/p</div></td>
+                <td class="price-val" style="color:var(--primary-dark);">$299,800<div class="price-sub">– $374,750</div></td>
             </tr>
         </tbody>
     </table>
     <div class="total-box">
         <div>
-            <div class="total-label">Inversión Total Estimada (La Flor · 225 pers. prom.)</div>
+            <div class="total-label">Inversión Total Estimada (La Flor · promedio 225 pers.)</div>
             <div class="total-amount">$202,275.00</div>
-            <p style="font-size:0.8rem;color:var(--gray-text);margin-top:8px;">Precios netos · I.V.A. del 16% aplica en caso de requerir factura oficial · Sujeto a disponibilidad de fecha.</p>
+            <p style="font-size:0.8rem;color:var(--gray-text);margin-top:8px;">Precios netos · I.V.A. 16% aplica en caso de factura · Sujeto a disponibilidad de fecha · Válido 15 días.</p>
         </div>
-        <a href="https://wa.me/527774587923?text=Hola%2C%20soy%20Mariangel%20Campos%2C%20ya%20revis%C3%A9%20la%20cotizaci%C3%B3n%20para%20mi%20boda%20y%20me%20gustar%C3%ADa%20agendar%20una%20cita%20para%20conocer%20los%20jardines." target="_blank" class="btn-whatsapp" style="padding:14px 30px;font-size:0.95rem;">
+        <a href="https://wa.me/527774587923?text=Hola%2C%20soy%20Mariangel%20Campos%2C%20ya%20revis%C3%A9%20mi%20cotizaci%C3%B3n%20de%20boda%20y%20quiero%20agendar%20una%20visita%20a%20los%20jardines." target="_blank" class="btn-whatsapp" style="padding:14px 30px;font-size:0.95rem;">
             Reservar mi fecha <i class="fa-brands fa-whatsapp"></i>
         </a>
     </div>
 </div>
 
-<!-- ── KIT PLANNER + GUÍA ── -->
-<div class="kit-section reveal" style="margin-top:60px;">
+<!-- ── DURACIÓN DEL SERVICIO ── -->
+<div class="duration-box reveal">
+    <div style="flex:1;min-width:220px;">
+        <div style="background:var(--primary-pink);display:inline-block;padding:5px 14px;border-radius:50px;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:15px;">Duración del Servicio</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:2.5rem;margin-bottom:10px;">8 Horas Continuas</h3>
+        <p style="color:#ccc;font-size:0.95rem;">Desde la recepción hasta el cierre del evento, nuestro personal estará a su disposición garantizando que todo funcione a la perfección.</p>
+    </div>
+    <div class="duration-badges">
+        <div class="duration-badge-item"><i class="fa-solid fa-medal"></i><span>Compromiso de Calidad</span></div>
+        <div class="duration-badge-item"><i class="fa-solid fa-shield-halved"></i><span>Servicio Integral</span></div>
+        <div class="duration-badge-item"><i class="fa-solid fa-star"></i><span>Atención VIP</span></div>
+        <div class="duration-badge-item"><i class="fa-solid fa-handshake"></i><span>Sin Contratiempos</span></div>
+    </div>
+</div>
+
+<!-- ── KIT PLANNER ── -->
+<div class="kit-section reveal">
     <div class="kit-content">
         <div class="kit-badge"><i class="fa-solid fa-gift"></i> Recursos Gratuitos para Novias</div>
         <h3>Kit Planner &amp; Guía Maestra</h3>
@@ -522,34 +578,33 @@ document.addEventListener('DOMContentLoaded',function(){
         </div>
     </div>
     <div class="kit-icons">
-        <div class="kit-icon-item">
-            <i class="fa-solid fa-table-cells"></i>
-            <div><strong>Smart Event Planner Pro</strong><span>Plantilla Excel control de presupuesto</span></div>
-        </div>
-        <div class="kit-icon-item">
-            <i class="fa-solid fa-book-open"></i>
-            <div><strong>Guía Maestra Primavera Events</strong><span>Pasos definitivos para tu boda</span></div>
-        </div>
+        <div class="kit-icon-item"><i class="fa-solid fa-table-cells"></i><div><strong>Smart Event Planner Pro</strong><span>Plantilla Excel control de presupuesto</span></div></div>
+        <div class="kit-icon-item"><i class="fa-solid fa-book-open"></i><div><strong>Guía Maestra Primavera Events</strong><span>Pasos definitivos para tu boda</span></div></div>
     </div>
 </div>
 
-<!-- ── DESCARGA PDF ── -->
-<div class="pdf-download-section reveal">
-    <h3 style="font-size:1.4rem;margin-bottom:10px;"><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> Versión PDF de esta Cotización</h3>
+<!-- ── INVITACIÓN DIGITAL ── -->
+<div class="inv-card reveal">
+    <div class="inv-card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+    <div class="inv-card-body">
+        <h3>Invitación Digital Premium — ¡Totalmente Gratis!</h3>
+        <p>Al contratar tu boda con nosotros te regalamos tu <strong>Invitación Digital Premium Interactiva</strong>: confirmación de asistencia RSVP en tiempo real, mapa satelital, galería y mesa de regalos. Valor: <strong>$8,000 MXN sin costo adicional</strong>.</p>
+        <a href="https://5410m0n0c001.github.io/invitacion-demo/" target="_blank" class="btn-inv"><i class="fa-solid fa-eye"></i> Ver Demo de la Invitación</a>
+    </div>
+</div>
+
+<!-- ── PDF ── -->
+<div class="pdf-section reveal">
+    <h3><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> Versión PDF de esta Cotización</h3>
     <p>Descarga o imprime esta propuesta en formato PDF para compartirla fácilmente con tu familia o pareja.</p>
     <button class="btn-pdf" id="btnDownloadPDF"><i class="fa-solid fa-download"></i> Descargar Cotización en PDF</button>
 </div>
 
-<!-- ── INVITACIÓN DIGITAL ── -->
-<div class="inv-section">
-    <div class="inv-card reveal">
-        <div class="inv-card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-        <div class="inv-card-body">
-            <h3>Invitación Digital Premium — ¡Totalmente Gratis!</h3>
-            <p>Al contratar tu boda con nosotros te regalamos tu <strong>Invitación Digital Premium Interactiva</strong>: con confirmación de asistencia (RSVP) en tiempo real, mapa satelital, galería de fotos y mesa de regalos integrada. Un valor de <strong>$8,000 MXN sin costo adicional</strong>.</p>
-            <a href="https://5410m0n0c001.github.io/invitacion-demo/" target="_blank" class="btn-inv"><i class="fa-solid fa-eye"></i> Ver Demo de la Invitación</a>
-        </div>
-    </div>
+<!-- ── FIRMA ── -->
+<div class="signature-section reveal">
+    <video id="videoFirma" autoplay muted loop playsinline preload="auto" style="max-width:280px;width:100%;height:auto;mix-blend-mode:multiply;">
+        <source src="firma.mp4?v=3.0" type="video/mp4">
+    </video>
 </div>
 
 <!-- ── NOTA FINAL ── -->
@@ -557,14 +612,14 @@ document.addEventListener('DOMContentLoaded',function(){
     <h3><i class="fa-solid fa-file-signature"></i> Nota Final y Condiciones</h3>
     <p>Al formalizar tu contrato, agendaremos una <strong>degustación exclusiva para 4 personas</strong> para que puedas elegir el menú perfecto de tu boda con total tranquilidad.</p>
     <p>Para visitas guiadas a los jardines, ajustes al paquete o cualquier duda, contáctanos directamente con <strong>Jessy Sandoval</strong> o <strong>Richard Hernández</strong>. Estaremos encantados de acompañarte en cada paso de este camino hacia el gran día.</p>
-    <p>Los precios presentados son <strong>netos</strong>, no incluyen IVA del 16% en caso de requerir factura oficial. Precios sujetos a cambios sin previo aviso. Se requiere depósito del 50% para reservar fecha.</p>
+    <p>Precios netos · No incluyen IVA del 16% en caso de requerir factura oficial · Precios sujetos a cambios sin previo aviso · Se requiere anticipo del 50% para reservar la fecha.</p>
     <p class="quote-phrase">«Hacemos de tu boda un recuerdo eterno. El arte de servir, hecho realidad.»</p>
 </div>
 
-<!-- ── CTA FINAL ── -->
+<!-- ── CTA ── -->
 <div class="cta-container reveal">
     <p>«Febrero y marzo en Morelos son perfectos para una boda de jardín. Las fechas se agotan rápidamente — ¡reserva hoy!»</p>
-    <a href="https://wa.me/527774587923?text=Hola%2C%20soy%20Mariangel%20Campos%2C%20ya%20revis%C3%A9%20mi%20cotizaci%C3%B3n%20de%20boda%20para%202027%20y%20quiero%20agendar%20una%20visita%20a%20los%20jardines." class="btn-whatsapp" target="_blank">
+    <a href="https://wa.me/527774587923?text=Hola%2C%20soy%20Mariangel%20Campos%2C%20ya%20revis%C3%A9%20mi%20cotizaci%C3%B3n%20y%20quiero%20agendar%20mi%20cita%20para%20ver%20los%20jardines." class="btn-whatsapp" target="_blank">
         Agendar Cita con un Planner <i class="fa-brands fa-whatsapp"></i>
     </a>
     <p style="font-size:0.8rem;margin-top:14px;color:var(--gray-text);">Jessy Sandoval &amp; Richard Hernández · +52 777 458 7923</p>
@@ -584,12 +639,10 @@ document.addEventListener('DOMContentLoaded',function(){
         <p><i class="fa-solid fa-envelope" style="color:var(--primary-pink);width:20px;"></i> <a href="mailto:contacto@primaveraeventsgroup.com">contacto@primaveraeventsgroup.com</a></p>
         <p><i class="fa-solid fa-globe" style="color:var(--primary-pink);width:20px;"></i> <a href="https://primaveraeventsgroup.com" target="_blank">primaveraeventsgroup.com</a></p>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 Primavera Events Group. Todos los derechos reservados. · Propuesta válida por 15 días.</p>
-    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Primavera Events Group. Todos los derechos reservados. · Propuesta válida por 15 días.</p></div>
 </footer>
 
-<!-- ══ FLOATING ACTIONS ══ -->
+<!-- ══ FAB ══ -->
 <div class="floating-actions-container">
     <div class="fab-group" id="socialGroup">
         <div class="fab-menu">
@@ -608,9 +661,15 @@ document.addEventListener('DOMContentLoaded',function(){
     </button>
 </div>
 
+<!-- ══ AUDIO (musicalizado igual al repo de referencia) ══ -->
+<audio id="bgAudio" loop preload="auto">
+    <source src="marcasonora.mp3" type="audio/mpeg">
+</audio>
+
 <!-- ══ SCRIPTS ══ -->
 <script>
 document.addEventListener('DOMContentLoaded',function(){
+
     // Reveal on scroll
     var reveals=document.querySelectorAll('.reveal');
     var observer=new IntersectionObserver(function(entries,obs){
@@ -620,14 +679,25 @@ document.addEventListener('DOMContentLoaded',function(){
     },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
     reveals.forEach(function(r){observer.observe(r);});
 
+    // Video firma autoplay on viewport
+    var videoFirma=document.getElementById('videoFirma');
+    if(videoFirma){
+        var vObs=new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting&&videoFirma.paused){videoFirma.play().catch(function(){});}
+            });
+        },{threshold:0.05});
+        vObs.observe(videoFirma);
+    }
+
     // Parallax hero
     window.addEventListener('scroll',function(){
         var scrolled=window.pageYOffset;
         var hero=document.querySelector('.hero');
-        if(hero){hero.style.backgroundPosition='center calc(20% + '+(scrolled*0.35)+'px)';}
+        if(hero){hero.style.backgroundPosition='center '+(scrolled*0.4)+'px';}
     });
 
-    // FAB social
+    // FABs
     var fabGroups=document.querySelectorAll('.fab-group');
     fabGroups.forEach(function(g){
         var btn=g.querySelector('.fab-main');
@@ -637,63 +707,32 @@ document.addEventListener('DOMContentLoaded',function(){
             g.classList.toggle('active');
         });
     });
+    document.addEventListener('click',function(){fabGroups.forEach(function(g){g.classList.remove('active');});});
 
-    // Share button
+    // Share
     var btnShare=document.getElementById('btnShare');
     btnShare.addEventListener('click',async function(){
-        var shareData={
-            title:'Cotización Boda Mariangel Campos – Primavera Events Group',
-            text:'Hola! Te comparto la propuesta exclusiva de boda para Mariangel. Jardín con agua, 200-250 invitados, Morelos 2027.',
-            url:window.location.href
-        };
-        if(navigator.share){
-            try{await navigator.share(shareData);}catch(err){}
-        } else {
-            try{
-                await navigator.clipboard.writeText(window.location.href);
-                alert('¡Enlace copiado! Pégalo en WhatsApp o donde prefieras.');
-            }catch(err){alert('Copia el enlace de la barra de dirección de tu navegador.');}
-        }
+        var shareData={title:'Cotización Boda Mariangel Campos – Primavera Events Group',text:'Hola! Te comparto la propuesta exclusiva de boda de Mariangel. Jardín con agua en Morelos, 200-250 invitados, Feb/Mar 2027.',url:window.location.href};
+        if(navigator.share){try{await navigator.share(shareData);}catch(err){}}
+        else{try{await navigator.clipboard.writeText(window.location.href);alert('¡Enlace copiado! Pégalo en WhatsApp.');}catch(err){alert('Copia el enlace de la barra de direcciones.');}}
     });
 
-    document.addEventListener('click',function(){
-        fabGroups.forEach(function(g){g.classList.remove('active');});
-    });
-
-    // PDF Download via print
+    // PDF via print
     document.getElementById('btnDownloadPDF').addEventListener('click',function(){
         var btn=this;
         btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> Preparando PDF...';
         btn.disabled=true;
-        setTimeout(function(){
-            window.print();
-            btn.innerHTML='<i class="fa-solid fa-download"></i> Descargar Cotización en PDF';
-            btn.disabled=false;
-        },300);
+        setTimeout(function(){window.print();btn.innerHTML='<i class="fa-solid fa-download"></i> Descargar Cotización en PDF';btn.disabled=false;},300);
     });
+
+    // Audio autoplay
+    var audio=document.getElementById('bgAudio');
+    var playAttempt=function(){var p=audio.play();if(p!==undefined){p.then(function(){document.removeEventListener('click',playAttempt);document.removeEventListener('touchstart',playAttempt);}).catch(function(){});}};
+    playAttempt();
+    document.addEventListener('click',playAttempt);
+    document.addEventListener('touchstart',playAttempt);
+    audio.addEventListener('pause',function(){audio.play().catch(function(){});});
 });
 </script>
-
-<!-- Print styles for PDF -->
-<style>
-@media print{
-    #preloader,
-    .floating-actions-container,
-    .pdf-download-section,
-    .kit-buttons,
-    .cta-container .btn-whatsapp,
-    .btn-inv,
-    footer .footer-bottom{display:none!important;}
-    body{background:white!important;}
-    .quote-card{box-shadow:none!important;padding:20px!important;}
-    .hero{height:200px!important;min-height:auto!important;}
-    .hero h1{font-size:2rem!important;}
-    .container{margin-top:0!important;}
-    .include-img-container{height:140px!important;}
-    .venue-img-wrap{height:160px!important;}
-    .reveal{opacity:1!important;transform:none!important;}
-}
-</style>
-
 </body>
 </html>
