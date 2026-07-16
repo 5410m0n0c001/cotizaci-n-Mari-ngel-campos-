@@ -539,15 +539,50 @@ document.addEventListener('DOMContentLoaded',function(){
             </tr>
         </tbody>
     </table>
-    <div class="total-box">
-        <div>
-            <div class="total-label">Inversión Total Estimada (La Flor · promedio 225 pers.)</div>
-            <div class="total-amount">$202,275.00</div>
-            <p style="font-size:0.8rem;color:var(--gray-text);margin-top:8px;">Precios netos · I.V.A. 16% aplica en caso de factura · Sujeto a disponibilidad de fecha · Válido 15 días.</p>
+    <!-- Totales por locación y cantidad -->
+    <div style="margin-top:36px;padding-top:36px;border-top:2px solid var(--beige);">
+        <p style="font-size:0.9rem;color:var(--gray-text);margin-bottom:22px;"><i class="fa-solid fa-circle-info" style="color:var(--primary-pink);"></i> &nbsp;Inversión total según locación y número de invitados:</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:28px;">
+
+            <!-- La Flor · 200 -->
+            <div style="background:var(--background-light);border:2px solid var(--gold-accent);border-radius:20px;padding:24px;text-align:center;">
+                <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold-accent);margin-bottom:6px;">🌸 Jardín La Flor</div>
+                <div style="font-size:0.85rem;color:var(--gray-text);margin-bottom:10px;">200 invitados · $899 p/p</div>
+                <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--primary-dark);">$179,800</div>
+                <div style="font-size:0.78rem;color:var(--gray-text);margin-top:4px;">MXN</div>
+            </div>
+
+            <!-- La Flor · 250 -->
+            <div style="background:var(--background-light);border:2px solid var(--gold-accent);border-radius:20px;padding:24px;text-align:center;">
+                <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold-accent);margin-bottom:6px;">🌸 Jardín La Flor</div>
+                <div style="font-size:0.85rem;color:var(--gray-text);margin-bottom:10px;">250 invitados · $899 p/p</div>
+                <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--primary-dark);">$224,750</div>
+                <div style="font-size:0.78rem;color:var(--gray-text);margin-top:4px;">MXN</div>
+            </div>
+
+            <!-- San Rafael · 200 -->
+            <div style="background:var(--background-light);border:2px solid var(--primary-pink);border-radius:20px;padding:24px;text-align:center;">
+                <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--primary-pink);margin-bottom:6px;">🏡 Jardín San Rafael</div>
+                <div style="font-size:0.85rem;color:var(--gray-text);margin-bottom:10px;">200 invitados · $1,499 p/p</div>
+                <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--primary-dark);">$299,800</div>
+                <div style="font-size:0.78rem;color:var(--gray-text);margin-top:4px;">MXN</div>
+            </div>
+
+            <!-- San Rafael · 250 -->
+            <div style="background:var(--background-light);border:2px solid var(--primary-pink);border-radius:20px;padding:24px;text-align:center;">
+                <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--primary-pink);margin-bottom:6px;">🏡 Jardín San Rafael</div>
+                <div style="font-size:0.85rem;color:var(--gray-text);margin-bottom:10px;">250 invitados · $1,499 p/p</div>
+                <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--primary-dark);">$374,750</div>
+                <div style="font-size:0.78rem;color:var(--gray-text);margin-top:4px;">MXN</div>
+            </div>
+
         </div>
-        <a href="https://wa.me/527774587923?text=Hola%2C%20soy%20Mariangel%20Campos%2C%20ya%20revis%C3%A9%20mi%20cotizaci%C3%B3n%20de%20boda%20y%20quiero%20agendar%20una%20visita%20a%20los%20jardines." target="_blank" class="btn-whatsapp" style="padding:14px 30px;font-size:0.95rem;">
-            Reservar mi fecha <i class="fa-brands fa-whatsapp"></i>
-        </a>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+            <p style="font-size:0.8rem;color:var(--gray-text);">Precios netos · I.V.A. 16% aplica en caso de factura · Sujeto a disponibilidad de fecha · Válido 15 días.</p>
+            <a href="https://wa.me/527774587923?text=Hola%2C%20soy%20Mariangel%20Campos%2C%20ya%20revis%C3%A9%20mi%20cotizaci%C3%B3n%20de%20boda%20y%20quiero%20agendar%20una%20visita%20a%20los%20jardines." target="_blank" class="btn-whatsapp" style="padding:14px 30px;font-size:0.95rem;">
+                Reservar mi fecha <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
     </div>
 </div>
 
